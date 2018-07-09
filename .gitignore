@@ -1,0 +1,11 @@
+
+
+.idea
+*.iml
+
+#### Directory
+/node_modules/
+
+/src/test/resources/dbuser
+
+                                                                                                                       

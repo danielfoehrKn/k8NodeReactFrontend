@@ -1,0 +1,12 @@
+node_modules
+.git
+.gitignore
+.iml
+/.idea
+
+
+
+# ignore all *.class files in all folders, including build root
+**/*.class
+*.md
+!README*.md
