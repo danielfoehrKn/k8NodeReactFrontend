@@ -12,14 +12,17 @@ const DEFAULT_QUERY = 'echo/api/db/news';
 
 router.get('/', function(req, res, next) {
 
+    console.log("Starting to fetch news");
+
     fetch(API + DEFAULT_QUERY)
+        .then(res => res.json())
         .then(data => {
-            console.log("Response: " + data);
+            console.log("Response from backend call: " + JSON.stringify(data));
             res.send(data);
         })
         .catch((response) => {
             console.log("Error: " + response)
-            res.send(500)
+            res.sendStatus(500)
         })
 });
 
