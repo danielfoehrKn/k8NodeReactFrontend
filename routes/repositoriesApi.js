@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
         .then(res => res.json())
         .then(data => {
             console.log("Response from backend call: " + JSON.stringify(data));
-            res.send(data);
+            res.status(200).send(data);
         })
         .catch((response) => {
             console.log("Error: " + response)
