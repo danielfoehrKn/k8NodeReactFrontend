@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ./app.js",
     "nodemon": "nodemon",
     "webpack": "webpack"
   },
@@ -26,6 +26,8 @@
     "react-materialize": "^1.1.2",
     "react-toastify": "^4.1.0",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
     "style-loader": "^0.21.0",
     "webpack": "^3.10.0"
   }

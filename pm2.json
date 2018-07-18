@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "script": "./bin/www",
+  "script": "./app.js",
   "instances": "1",
   "env": {
     "NODE_ENV": "development"
