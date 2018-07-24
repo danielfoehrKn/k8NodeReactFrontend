@@ -12,9 +12,10 @@ const DEFAULT_QUERY = 'echo/api/db/repositories';
 
 router.post('/', function (req, res) {
     console.log("Registering Github Repository : " + JSON.stringify(req.body));
-    console.log("Id : " + req.body.id.toString());
 
-    var id = req.body.id;
+    // "/" in id causes problems when query in rest style to java backend
+    var id = req.body.id.replace("/", "");
+    console.log("Id : " + id);
     fetch(API + DEFAULT_QUERY, {
         method: 'POST',
         body: JSON.stringify({"id": "".concat(id).concat("")}),
