@@ -1,29 +1,33 @@
+// webpack v4
+const path = require('path');
 module.exports = {
-    //just to check if its working
-    entry: "./public/react/reactApp.js",
-    output: {
-        path: __dirname + "/public",
-        filename: "bundle.js"
-    },
+    entry: { main: './public/react/reactApp.js' },
     module: {
-        loaders: [{
-            exclude: /(node_modules)/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react']
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             }
-        }, {
-            test: /\.css$/,
-            loader: 'style-loader'
-        }, {
-            test: /\.css$/,
-            loader: 'css-loader',
-            query: {
-                modules: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
-        },]
+        ]
     },
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    // module: {
+    //     rules: [
+    //         {
+    //             test: /\.js$/,
+    //             exclude: /node_modules/,
+    //             use: {
+    //                 loader: "babel-loader"
+    //             }
+    //         }
+    //     ]
+    // },
     watch: true
-
-}
+};
