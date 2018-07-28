@@ -7,10 +7,10 @@ var bodyParser = require('body-parser');
 var http = require('http');
 
 var index = require('./routes/index');
-// var news = require('./routes/api');
 var news = require('./routes/newsApi');
 var repositories = require('./routes/repositoriesApi');
 var issues = require('./routes/issuesApi');
+var report = require('./routes/reportApi');
 
 const socketIo = require("socket.io");
 
@@ -33,6 +33,7 @@ app.use('/', index);
 app.use('/api/news', news);
 app.use('/api/repositories', repositories);
 app.use('/api/issues', issues);
+app.use('/api/report', report);
 
 // init server
 const server = http.createServer(app);

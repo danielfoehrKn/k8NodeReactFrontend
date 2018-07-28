@@ -20,13 +20,14 @@ router.post('/', function (req, res) {
 
     let id = req.body.id.toString();
     let label = req.body.label.toString();
+    let action = req.body.action.toString();
 
     console.log("Issue body : " + JSON.stringify(req.body) + " Github ID: " + id + " label: " + label);
 
     var connectedClients = Object.keys(app.io.clients().connected);
     console.log("Emmitting issue event to all connected clients:  " + connectedClients.length)
 
-    app.io.sockets.emit('issueCreated', {"id" : id, "label" : label});
+    app.io.sockets.emit('issueCreated', {"id" : id, "label" : label, "action" : action});
     res.sendStatus(200)
 })
 module.exports = router;
